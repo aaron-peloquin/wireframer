@@ -3,6 +3,12 @@
     <script src="./Component.js"></script>
   </head>
   <body>
-    <p>Paragraph text here <wireframe-component><wireframe-component />f</wireframe-component> forever?</p>
+      <wf-c component="parent2" size="4"></wf-c>
+      <wf-c component="parent3" size="8"></wf-c>
+      <wf-c component="parent">
+        <wf-c component="child 1"></wf-c>
+        <wf-c></wf-c>
+        <wf-c component="child 3"></wf-c>
+    </wf-c>
   </body>
 </html>
