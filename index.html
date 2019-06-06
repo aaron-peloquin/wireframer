@@ -3,28 +3,30 @@
     <script src="./Component.js"></script>
   </head>
   <body>
-      <wf-c component="parent2" size="4"></wf-c>
-      <wf-c component="parent3" size="8">
-          <wf-c component="1 col" size="1"></wf-c>
-          <wf-c component="1 col" size="1"></wf-c>
-          <wf-c component="1 col" size="1"></wf-c>
-          <wf-c component="1 col" size="1"></wf-c>
-          <wf-c component="1 col" size="1"></wf-c>
-          <wf-c component="1 col" size="1"></wf-c>
-          <wf-c component="1 col" size="1"></wf-c>
-          <wf-c component="1 col" size="1"></wf-c>
-          <wf-c component="1 col" size="1"></wf-c>
-          <wf-c component="1 col" size="1"></wf-c>
-          <wf-c component="1 col" size="1"></wf-c>
-          <wf-c component="1 col" size="1"></wf-c>
+    <wf-c component="MainRouter">
+      <wf-c component="Sidebar" size="2"></wf-c>
+      <wf-c component="Breadcrumbs" size="10">
+        <wf-c component="PageRoute">
+          <wf-c component="PageTabs" size="12"></wf-c>
+          <wf-c component="PageTemplate">
+            <wf-c component="PageBody" size="9">
+              <wf-c component="PageList">
+                <wf-c component="PageListItem"></wf-c>
+                <wf-c component="PageListItem"></wf-c>
+                <wf-c component="PageListItem"></wf-c>
+                <wf-c component="PageListItem"></wf-c>
+              </wf-c>
+            </wf-c>
+            <wf-c component="PageFilterBar" size="3">
+              <wf-c component="PageFilter1"></wf-c>
+              <wf-c component="PageFilter2"></wf-c>
+              <wf-c component="PageFilter3"></wf-c>
+              <wf-c component="PageFilter4"></wf-c>
+              <wf-c component="PageFilter5"></wf-c>
+            </wf-c>
         </wf-c>
-      <wf-c component="parent">
-        <wf-c component="child 1"></wf-c>
-        <wf-c></wf-c>
-        <wf-c component="child 3"></wf-c>
-        <wf-c component="4 col" size="4"></wf-c>
-        <wf-c component="4 col" size="4"></wf-c>
-        <wf-c component="4 col" size="4"></wf-c>
+      </wf-c>
+      </wf-c>
     </wf-c>
   </body>
 </html>
