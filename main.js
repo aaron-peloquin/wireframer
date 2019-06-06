@@ -5,7 +5,7 @@ customElements.define('wf-c', class WFC extends HTMLElement {
    */
   connectedCallback() {
     const componentName = this.getAttribute('component') || 'Generic Component'
-    const componentSize = parseInt(this.getAttribute('size') || 12)
+    const componentSize = parseInt(this.getAttribute('size')) || 12
     const width = (100 / 12 * componentSize)
     const spacingUnit = 4
     const root = this.attachShadow({mode: 'open'})
