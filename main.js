@@ -15,7 +15,7 @@ customElements.define('wf-c', class WFC extends HTMLElement {
     this.addEventListener('click', (e) => {
       if(e.target===this) {
         const info = this.getInformation()
-        console.log({info})
+        console.log({...info})
       }
     })
   }
