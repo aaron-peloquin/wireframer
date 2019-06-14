@@ -2,6 +2,7 @@ customElements.define('wf-c', class WFC extends HTMLElement {
   getInformation() {
     const {name, size} = this.getProps()
     const parentName = this.parentNode.getAttribute('component')
+    
     return {
       columns: size,
       name: name,
@@ -15,7 +16,18 @@ customElements.define('wf-c', class WFC extends HTMLElement {
     this.addEventListener('click', (e) => {
       if(e.target===this) {
         const info = this.getInformation()
-        console.log({...info})
+        const readout = document.getElementById('readout')
+        readout.textContent = `${info.tag} component. Is a child of ${info.parentName}, and is ${info.columns} columns wide`
+        const selection = window.getSelection()
+        const range = document.createRange()
+        range.selectNodeContents(readout)
+        selection.removeAllRanges()
+        selection.addRange(range)
+        try {
+          document.execCommand('copy')
+        } catch (e) {
+          console.warn(e)
+        }
       }
     })
   }
@@ -65,5 +77,25 @@ customElements.define('wf-c', class WFC extends HTMLElement {
 
 const styleTag = document.createElement('style')
 styleTag.type = 'text/css'
-styleTag.appendChild(document.createTextNode(`body {background-color: #EEE; font-size: 18px;}`))
+styleTag.appendChild(document.createTextNode(`
+body {
+  margin: 0; background-color: #EEE font-size: 18px
+}
+#readout {
+  text-align: center;
+  vertical-align: middle;
+  position: fixed;
+  bottom: 0;
+  background-color: yellow;
+  border: 1px solid black;
+  font-size: 21px;
+  padding: 4px;
+  width: 100%
+}
+`))
 document.getElementsByTagName("head")[0].appendChild(styleTag)
+
+const infoTag = document.createElement('span')
+infoTag.id = 'readout'
+infoTag.appendChild(document.createTextNode('Click on a component to copy its information to your clipboard and view that information here'))
+document.body.appendChild(infoTag)
